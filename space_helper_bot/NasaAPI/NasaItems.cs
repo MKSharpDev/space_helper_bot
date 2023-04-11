@@ -10,5 +10,6 @@ namespace space_helper_bot.NasaAPI
     {
         public string Explanation { get; set; }
         public string Url { get; set; }
+        public string Title { get; set; }
     }
 }
