@@ -34,10 +34,10 @@ namespace space_helper_bot
                 try
                 {
 
-                     GetNASAImage();
+                    await GetNASAImage();
+                    
 
-
-                    //await Task.Delay(1000000);
+                    
 
 
 
@@ -51,7 +51,7 @@ namespace space_helper_bot
  
             //}
         }
-        public async void GetNASAImage()
+        public async Task GetNASAImage()
         {
 
             string urlPhoto = "https://api.telegram.org/bot{0}/sendPhoto?chat_id={1}&caption={2}&photo={3}";
