@@ -57,9 +57,10 @@ namespace space_helper_bot
             string urlPhoto = "https://api.telegram.org/bot{0}/sendPhoto?chat_id={1}&caption={2}&photo={3}";
             string urlMassage = "https://api.telegram.org/bot{0}/sendMessage?chat_id={1}&text={2}";
             string date = DateTime.Now.ToString("yyyy-MM-dd");
-            ShowNasaAPI NASA = new ShowNasaAPI($"https://api.nasa.gov/planetary/apod?api_key=uRClRiZoLpmMHBht7DMGTp1TA6SXcs1ephm29G4q&date={date}");
+            string NasaToken = AccesToken.NasaToken;
+            ShowNasaAPI NASA = new ShowNasaAPI($"https://api.nasa.gov/planetary/apod?api_key={NasaToken}&date={date}");
             await Task.Delay(1000);
-            string apiToken = AccesToken.Value;
+            string apiToken = AccesToken.TelegramToken;
             string chatId = "@kosmos_future";
 
             SeleniumTranslate translateAPI = new SeleniumTranslate();
