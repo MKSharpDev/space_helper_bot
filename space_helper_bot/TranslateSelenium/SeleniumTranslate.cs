@@ -21,9 +21,23 @@ namespace space_helper_bot.TranslateSelenium
             var driver = new FirefoxDriver();
             await Task.Delay(3000);
 
-            driver.Navigate().GoToUrl($"https://translate.google.com/?hl=ru&sl=en&tl=ru&text={inputData}&op=translate");
+            driver.Navigate().GoToUrl($"https://translate.yandex.ru/?source_lang=en&target_lang=ru&text={inputData}");
             await Task.Delay(2000);
-            string rezult = driver.FindElement(By.XPath("//div[@class='lRu31']")).Text;
+            try
+            {
+                driver.FindElement(By.XPath("/html/body/div[1]/div/div/form/div[2]/div/div/div[1]")).Click();
+            }
+            catch (Exception)
+            {
+
+
+            }
+
+            await Task.Delay(3000);
+
+            string rezult = driver.FindElement(By.XPath("//pre[@id='translation']")).Text;
+            await Task.Delay(1000);
+
             driver.Quit();
             return rezult;
 
